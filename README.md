@@ -1,6 +1,14 @@
 # Full-stack приложение для отслеживания дней рождений. Backend на ASP.NET Core, frontend на React.
 
-### ⚙️ Установка
+##  Требования
+
+- [.NET SDK 8+](https://dotnet.microsoft.com/)
+- [Node.js 18+](https://nodejs.org/)
+- [PostgreSQL 15+](https://www.postgresql.org/download/)
+- npm (входит в Node.js)
+- Git
+
+###  Установка
 Клонировать репозиторий
 ```
 git clone https://github.com/your-username/BirthdayTracker.git
@@ -13,7 +21,25 @@ cd client
 npm install
 cd ..
 ```
+### Настройка базы данных PostgreSQL
+Создать базу данных
+```
+createdb birthdaytracker
+```
+Обновить строку подключения в appsettings.json
+```
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Database=birthdaytracker;Username=postgres;Password=yourpassword"
+  }
+}
+```
+Применить миграции
+```
+dotnet ef database update
+```
 ### 
+### Запуск
 Запуск Backend
 ```
 dotnet run
